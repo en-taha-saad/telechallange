@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+    <Transition
+        app:motionInterpolator="bounce"
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@+id/normal">
+        <OnSwipe
+            motion:dragDirection="dragUp"
+            motion:touchAnchorId="@+id/action_bar"
+            motion:touchAnchorSide="bottom" />
+    </Transition>
+    <Transition
+        app:motionInterpolator="bounce"
+        motion:constraintSetEnd="@+id/start"
+        motion:constraintSetStart="@+id/normal">
+        <OnSwipe
+            motion:dragDirection="dragDown"
+            motion:touchAnchorId="@+id/action_bar"
+            motion:touchAnchorSide="bottom" />
+        <KeyFrameSet>
+
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="70"
+                app:motionTarget="@+id/profile_full" />
+
+            <KeyAttribute
+                android:alpha="1"
+                app:framePosition="100"
+                app:motionTarget="@+id/profile_full" />
+
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/normal" />
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/profile_circle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_100x"
+            android:scaleType="centerCrop"
+            app:shapeAppearance="@style/RectangleImageView"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/profile_full"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_100x"
+            android:scaleType="centerCrop"
+            android:visibility="visible"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/action_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_100x"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/name_and_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_5x"
+            android:layout_marginBottom="@dimen/size_5x"
+            app:layout_constraintBottom_toBottomOf="@id/profile_full"
+            app:layout_constraintStart_toStartOf="@id/profile_full" />
+    </ConstraintSet>
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/action_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_14x"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/profile_circle"
+            android:layout_width="@dimen/size_11x"
+            android:layout_height="@dimen/size_11x"
+            android:layout_marginStart="@dimen/size_6x"
+            android:scaleType="centerCrop"
+            app:shapeAppearance="@style/RoundedImageView"
+            motion:layout_constraintBottom_toBottomOf="@id/back_icon"
+            motion:layout_constraintStart_toEndOf="@id/back_icon"
+            motion:layout_constraintTop_toTopOf="@id/back_icon" />
+
+    </ConstraintSet>
+
+</MotionScene>

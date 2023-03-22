@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:layoutDescription="@xml/activity_main_scene"
+    tools:context=".MainActivity"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+>
+
+    <View
+        android:id="@+id/action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_36x"
+        android:background="@color/medium_grey"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/back_icon"
+        android:layout_width="@dimen/size_0x"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_4x"
+        android:layout_marginTop="@dimen/size_4x"
+        android:contentDescription="@string/back_button"
+        android:src="@drawable/ic_back"
+        android:translationZ="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+    <ImageView
+        android:id="@+id/more_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/size_4x"
+        android:contentDescription="@string/more_button"
+        android:src="@drawable/ic_more"
+        android:translationZ="1dp"
+        app:layout_constraintBottom_toBottomOf="@id/back_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/back_icon" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profile_circle"
+        android:layout_width="@dimen/size_15x"
+        android:layout_height="@dimen/size_15x"
+        android:layout_marginStart="@dimen/size_4x"
+        android:layout_marginTop="@dimen/size_5x"
+        android:layout_marginBottom="@dimen/size_5x"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile"
+        app:layout_constraintBottom_toBottomOf="@id/action_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_icon"
+        app:shapeAppearance="@style/RoundedImageView" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profile_full"
+        android:layout_width="@dimen/size_15x"
+        android:layout_height="@dimen/size_15x"
+        android:layout_marginStart="@dimen/size_4x"
+        android:layout_marginTop="@dimen/size_5x"
+        android:layout_marginBottom="@dimen/size_5x"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/action_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_icon"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/name_and_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_5x"
+        app:layout_constraintBottom_toBottomOf="@id/profile_circle"
+        app:layout_constraintStart_toEndOf="@id/profile_circle"
+        app:layout_constraintTop_toTopOf="@id/profile_circle">
+
+        <TextView
+            android:id="@+id/full_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textColor="@color/light"
+            android:textSize="@dimen/text_size_10x"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="@dimen/size_0x"
+            android:layout_height="wrap_content"
+            android:text="@string/status"
+            android:textColor="@color/light"
+            android:textSize="@dimen/text_size_7x"
+            app:layout_constraintEnd_toEndOf="@id/full_name"
+            app:layout_constraintStart_toStartOf="@id/full_name"
+            app:layout_constraintTop_toBottomOf="@id/full_name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/account_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dark_grey"
+        android:padding="@dimen/size_5x"
+        app:layout_constraintTop_toBottomOf="@id/action_bar">
+
+        <TextView
+            android:id="@+id/account"
+            style="@style/HeaderText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/account"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_phone_num"
+            style="@style/TitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_5x"
+            android:text="@string/phone_num"
+            app:layout_constraintTop_toBottomOf="@id/account" />
+
+        <TextView
+            android:id="@+id/tv_change_num"
+            style="@style/Subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_1x"
+            android:text="@string/change_num"
+            app:layout_constraintTop_toBottomOf="@id/tv_phone_num" />
+
+        <TextView
+            android:id="@+id/tv_username_value"
+            style="@style/TitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_5x"
+            android:text="@string/flutterdevtahasaad"
+            app:layout_constraintTop_toBottomOf="@id/tv_change_num" />
+
+        <TextView
+            android:id="@+id/tv_username"
+            style="@style/Subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_1x"
+            android:text="@string/username"
+            app:layout_constraintTop_toBottomOf="@id/tv_username_value" />
+
+        <TextView
+            android:id="@+id/tv_bio_value"
+            style="@style/TitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_5x"
+            android:text="@string/mobile_apps_engineer"
+            app:layout_constraintTop_toBottomOf="@id/tv_username" />
+
+        <TextView
+            android:id="@+id/tv_bio"
+            style="@style/Subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_1x"
+            android:text="@string/bio"
+            app:layout_constraintTop_toBottomOf="@id/tv_bio_value" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/help_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_3x"
+        android:background="@color/dark_grey"
+        android:padding="@dimen/size_5x"
+        app:layout_constraintTop_toBottomOf="@id/account_section">
+
+        <TextView
+            android:id="@+id/help"
+            style="@style/HeaderText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/help"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_ask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_5x"
+            android:layout_marginEnd="@dimen/size_5x"
+            android:contentDescription="@string/icon"
+            android:src="@drawable/ic_ask"
+            app:layout_constraintStart_toStartOf="@id/help"
+            app:layout_constraintTop_toBottomOf="@id/help" />
+
+        <ImageView
+            android:id="@+id/iv_faq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_5x"
+            android:contentDescription="@string/icon"
+            android:src="@drawable/ic_faq"
+            app:layout_constraintEnd_toEndOf="@id/iv_ask"
+            app:layout_constraintStart_toStartOf="@id/iv_ask"
+            app:layout_constraintTop_toBottomOf="@id/iv_ask" />
+
+        <ImageView
+            android:id="@+id/iv_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_5x"
+            android:contentDescription="@string/icon"
+            android:src="@drawable/ic_sheild"
+            app:layout_constraintEnd_toEndOf="@id/iv_ask"
+            app:layout_constraintStart_toStartOf="@id/iv_ask"
+            app:layout_constraintTop_toBottomOf="@id/iv_faq" />
+
+        <TextView
+            android:id="@+id/tv_ask"
+            style="@style/TitleText"
+            android:layout_width="@dimen/size_0x"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_5x"
+            android:text="@string/ask_a_question"
+            app:layout_constraintBottom_toBottomOf="@id/iv_ask"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_ask"
+            app:layout_constraintTop_toTopOf="@id/iv_ask" />
+
+        <TextView
+            android:id="@+id/tv_faq"
+            style="@style/TitleText"
+            android:layout_width="@dimen/size_0x"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_5x"
+            android:text="@string/telegram_faq"
+            app:layout_constraintBottom_toBottomOf="@id/iv_faq"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_faq"
+            app:layout_constraintTop_toTopOf="@id/iv_faq" />
+
+        <TextView
+            android:id="@+id/tv_policy"
+            style="@style/TitleText"
+            android:layout_width="@dimen/size_0x"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_5x"
+            android:text="@string/privacy_policy"
+            app:layout_constraintBottom_toBottomOf="@id/iv_policy"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_policy"
+            app:layout_constraintTop_toTopOf="@id/iv_policy" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
